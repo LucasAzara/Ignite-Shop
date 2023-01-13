@@ -8,6 +8,7 @@ import 'keen-slider/keen-slider.min.css'
 // Stripe
 import { stripe } from '../lib/stripe'
 import Stripe from 'stripe'
+import { GetStaticProps } from 'next'
 
 // interface
 interface IProducts {
@@ -49,7 +50,7 @@ export default function Home({products}: IHome) {
   )
 }
 
-export async function getServerSideProps() {
+export const getStaticProps: GetStaticProps = async () => {
 
   const data = await stripe.products.list({
     expand: ['data.default_price']

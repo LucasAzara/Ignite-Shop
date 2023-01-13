@@ -35,6 +35,7 @@ export const Product = styled('a', {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
+    gap: '0.5rem',
 
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
 
