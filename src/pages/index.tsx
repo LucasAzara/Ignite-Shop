@@ -46,7 +46,7 @@ export default function Home({products}: IHome) {
                 <strong>{product.name}</strong>
                 <span>{product.price}</span>
               </footer>
-          </Product>
+            </Product>
           </Link>
         )
       })}
