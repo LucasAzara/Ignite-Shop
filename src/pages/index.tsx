@@ -1,7 +1,8 @@
 // CSS
 import { HomeContainer, Product } from '../styles/pages/home'
-// Next Image
+// Next Imports
 import Image from 'next/image'
+import Link from 'next/link'
 // Slider
 import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css'
@@ -36,14 +37,17 @@ export default function Home({products}: IHome) {
     <HomeContainer  ref={sliderRef} className="keen-slider">
       {products.map(product => {
         return (
-          <Product className="keen-slider__slide">
-            <Image src={product.image} width={520} height={480} alt="" />
+          // prefetching the website when hovering
+          <Link href={`/products/${product.id}`} key={product.id} prefetch={false}>
+            <Product className="keen-slider__slide">
+              <Image src={product.image} width={520} height={480} alt="" />
 
-            <footer>
-              <strong>{product.name}</strong>
-              <span>{product.price}</span>
-            </footer>
-         </Product>
+              <footer>
+                <strong>{product.name}</strong>
+                <span>{product.price}</span>
+              </footer>
+          </Product>
+          </Link>
         )
       })}
     </HomeContainer>
